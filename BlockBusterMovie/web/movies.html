@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BlockBuster | Movies </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="assets/css/admin/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="assets/css/admin/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="assets/css/notification.css"/>
+    <link rel="stylesheet" href="assets/css/multi-select.css"/>
+<!--    <link rel="stylesheet" href="assets/css/admin/login.css">-->
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+    
+    <style>
+        
+        .custom-dark-file {
+            background-color: #2b2b2b;
+            color: #ccc;
+            border: 1px solid #444;
+            padding: 0.45rem 0.75rem;
+            font-size: 0.9rem;
+            border-radius: 4px;
+          }
+
+          .custom-dark-file::file-selector-button {
+            background-color: #444;
+            color: #ccc;
+            border: none;
+            padding: 0.4rem 0.75rem;
+            margin-right: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+
+          .custom-dark-file::file-selector-button:hover {
+            background-color: #555;
+          }
+        
+    </style>
+        
+  </head>
+  <body onload="loadProductData();">
+    <header class="header" id="page-header"></header>
+    <div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar"></nav>
+      <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        <!-- Page Header-->
+        <div class="page-header no-margin-bottom">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Movies</h2>
+          </div>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Movies            </li>
+          </ul>
+        </div>
+        <section class="no-padding-top">
+          <div class="container-fluid">
+            <div class="row">
+              <!-- Basic Form-->
+              <div class="col-lg-6">
+                <div class="block">
+                  <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Movie Title</label>
+                        <input type="text" id="title" placeholder="Movie Title" class="form-control">
+                      </div>
+                      <div class="form-group">       
+                        <label class="form-control-label">Description</label>
+                            <textarea id="description" placeholder="Description" class="form-control" rows="6"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Horizontal Form-->
+              <div class="col-lg-6">
+                <div class="block">
+                  <div class="block-body">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">
+                            IMDB 
+                            <img src="assets/images/icon/imdb.png" alt="imdb" style="margin-left: 5px;">
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="number" id="imdb" name="imdb_rating" class="form-control" step="0.1" min="0" max="10" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">
+                            Rotten Tomatoes
+                            <img src="assets/images/icon/rt.png" alt="RT" style="margin-left: 5px;">
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="number" id="rt_rating" name="rt_rating" class="form-control" step="1" min="0" max="100" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">MPAA Rating</label>
+                        <select name="account" class="form-control mb-3" id="mpaaRating">
+                            <option value="0">Select</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="block">
+                  <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Genre</label>
+                        <select name="genres" id="genre" multiple data-multi-select></select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="block">
+                  <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Actors</label>
+                        <small id="actor-feedback" class="text-muted"></small>
+                        <br/>
+                        <select name="actors" id="actor" multiple data-multi-select></select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="block">
+                  <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Director/s</label>
+                        <small id="director-feedback" class="text-muted"></small>
+                        <br/>
+                        <select name="directors" id="director" multiple data-multi-select></select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="block">
+                  <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Keywords</label>
+                        <small id="keyword-feedback" class="text-muted"></small>
+                        <br/>
+                        <select name="keywords" id="keyword" multiple data-multi-select></select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Inline Form-->
+              <div class="col-lg-3">                           
+                <div class="block">
+                  <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Movie Poster</label>
+                        <input type="file" id="img1" class="form-control custom-dark-file" accept="image/*">
+                      </div>
+                      
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal Form-->
+              <div class="col-lg-3">
+                <div class="block">
+                    <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">YouTube Trailer</label>
+                        <input type="text" id="trailer" placeholder="Trailer link" class="form-control">
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="block">
+                    <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Release Year</label>
+                        <input type="number" id="year" placeholder="Release Year" class="form-control" min="1888" max="2100">
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="block">
+                    <div class="block-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label">Run time</label>
+                       <input type="number" id="runtime" placeholder="Runtime in minutes" class="form-control" min="1" max="500">
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+              <div class="col-lg-12">
+                <div class="block">
+                    <div class="block-body">
+                    <form>
+                      <div class="line"></div>
+                      <div class="form-group row">
+                        <div class="col-sm-9 ml-auto">
+                          <button type="submit" class="btn btn-secondary">Cancel</button>
+                          <button type="button" class="btn btn-primary" onclick="saveProduct();">Save changes</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="footer"></footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery.cookie.js"> </script>
+    <script src="assets/js/vendor/Chart.min.js"></script>
+    <script src="assets/js/admin/front.js"></script>     
+    <script src="assets/js/admin/charts-home.js"></script>
+
+    <script src="assets/js/admin/admin-content-loader.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/multi-select.js"></script>
+    <script src="assets/js/admin/movie-listing.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<!-- index14:58-->
+<head>
+    <meta charset="UTF-8">
+    <title>My Account | BlockBuster</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+        <!--Google Font-->
+        <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="assets/css/plugins.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/my-account.css">
+        <link rel="stylesheet" href="assets/css/notification.css">
+
+</head>
+<body onload="loadData();">
+<!--loading-->
+<div id="preloader">
+    <img class="logo" src="assets/images/logo1.png" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--end of loading-->
+
+<!-- BEGIN | Header -->
+<header class="ht-header" id="page-header"></header>
+<!-- END | Header -->
+
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            
+            <div class="account-container">
+              <div class="left-side">
+                <!-- Profile Header -->
+                <div class="account-header">
+                  <img src="assets/images/avatar.png" alt="Profile" class="profile-image" />
+                  <div class="user-info">
+                    <h2 class="user-name" id="username">Hello Name</h2>
+                    <p class="user-subtext" id="since">BlockBuster Member Since 2025</p>
+                  </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="account-tabs">
+                    <button class="tab-button active" id="accountDetailsTab">Account Details</button>
+                    <button class="tab-button" id="addressesTab">Addresses</button>
+                    <button class="tab-button logout" onclick="signOut();">Logout</button>
+                  </div>
+              </div>
+
+              <!-- Account Details Form -->
+              <form class="account-form" id="accountDetailsForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName"/>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="lineOne">Address Line One</label>
+                    <input type="text" id="lineOne" placeholder="Enter Address Line One" />
+                  </div>
+                  <div class="form-group">
+                    <label for="lineTwo">Address Line Two</label>
+                    <input type="text" id="lineTwo" placeholder="Enter Address Line Two" />
+                  </div>
+                </div>
+                  
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="postalCode">Postal Code</label>
+                    <input type="text" id="postalCode" placeholder="Enter Postal Code" />
+                  </div>
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <select id="citySelect">
+                        <option value="0">Select</option>
+                    </select>
+                  </div>
+                </div>
+                  
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contactInfo">Contact Info</label>
+                    <input type="text" id="contactInfo" placeholder="Enter Contact Info" />
+                  </div>
+                </div>
+
+                <div class="password-section">
+                    <h5 class="title">Password Change</h5>
+
+                    <div class="form-group full-width">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="Enter current password" />
+
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter a new password" />
+
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm new password" />
+                    </div>
+                </div>
+
+                  <button type="submit" class="update-button" onclick="saveChanges();">Update Account</button>
+              </form>
+              
+              <!-- Orders Form -->
+              
+              <form class="account-form" id="ordersForm" style="display: none;">
+                 <h5 class="title">Current Delivery Address</h5>
+                <hr />                    
+              </form>
+              
+
+               <!-- Address Details Form -->
+               
+               <form class="account-form" id="addressesForm" style="display: none;">
+                    <h5 class="title">Current Delivery Address</h5>
+                    <hr />
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="addName">Recipient Name</label>
+                        <input type="text" id="addName" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                      <div class="form-group">
+                        <label for="addEmail">Email</label>
+                        <input type="email" id="addEmail" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="addLineOne">Address Line One</label>
+                        <input type="text" id="addLineOne" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                      <div class="form-group">
+                        <label for="addLineTwo">Address Line Two</label>
+                        <input type="text" id="addLineTwo" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="addCode">Postal Code</label>
+                        <input type="text" id="addCode" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                      <div class="form-group">
+                        <label for="addCity">City</label>
+                        <input type="text" id="addCity" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="text" id="contactNumber" style="background-color: #2c2c2c; color: #FFFFFF;" disabled />
+                      </div>
+                    </div>
+                  </form>
+               <!-- Address Details Form -->
+            </div>
+        </div>
+    </div> 
+</div> 
+<!-- End slider movie-items -->
+
+
+<!-- footer section-->
+<footer class="ht-footer"></footer>
+<!-- end of footer section-->
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/plugins2.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script src="assets/js/my-account.js"></script>
+<script src="assets/js/notification.js"></script>
+<script src="assets/js/sign-out.js"></script>
+<script src="assets/js/content-loader.js"></script>
+
+</body>
+
+<!-- index14:58-->
+</html>

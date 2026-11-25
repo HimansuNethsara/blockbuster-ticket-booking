@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<!-- index14:58-->
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | BlockBuster</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+        <!--Google Font-->
+        <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="assets/css/plugins.css" type="text/css">
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/checkout.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/notification.css" type="text/css">
+
+
+</head>
+<body onload="loadCheckoutData();">
+<!--loading-->
+<div id="preloader">
+    <img class="logo" src="assets/images/logo1.png" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--end of loading-->
+<!-- BEGIN | Header -->
+<header class="ht-header" id="page-header"></header>
+<!-- END | Header -->
+
+<div class="slider movie-items">
+    <div class="cart-wrapper">
+        <div class="row">
+            <div class="cart-container">
+
+                <!-- RIGHT SIDE: Cart Table -->
+                <div class="right-side">
+                    <h5 class="title mb--20">Your Booking</h5>
+                    <div class="summery-table-wrap">
+                        <table class="table summery-table">
+                            <thead>
+                                <tr>
+                                    <th>Movie Details</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="booking-summary-body">
+                                <tr class="booking-item-row">
+                                    <td>
+                                        <span class="movie-title"></span><br>
+                                        <small>
+                                            Cinema: <span class="cinema-name"></span>, 
+                                            Hall: <span class="hall-name"></span><br>
+                                            Date: <span class="show-date"></span>, 
+                                            Time: <span class="show-time"></span><br>
+                                            Tickets: <span class="ticket-qty"></span>
+                                        </small>
+                                    </td>
+                                    <td>Rs. <span class="booking-subtotal"></span></td>
+                                </tr>
+                                <tr class="order-subtotal">
+                                    <td>Subtotal</td>
+                                    <td>Rs. <span id="booking-subtotal-amount"></span></td>
+                                </tr>
+                                <tr class="order-service-charge">
+                                    <td>Service Fee</td>
+                                    <td>Rs. <span id="booking-service-fee"></span></td>
+                                </tr>
+                                <tr class="order-total">
+                                    <td>Total</td>
+                                    <td class="order-total-amount">Rs. <span id="booking-total-amount"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+
+                    <div class="order-payment-method mt--20">
+                        <div class="single-payment">
+                            <div class="input-group justify-content-between align-items-center">
+                                <input type="radio" id="radio6" name="payment" checked>
+                                <label for="radio6">Visa/Master Card</label>
+                                <div>
+                                    <img src="./assets/images/icon/visa.png" style="height:24px; margin-left:5px;">
+                                    <img src="./assets/images/icon/mastercard.png" style="height:24px; margin-left:5px;">
+                                </div>
+                            </div>
+                            <p style="font-size: 12px; color: #bbb;">You can pay with your credit or debit card.</p>
+                        </div>
+                    </div>
+
+                    <!-- CHECKOUT BUTTON -->
+                    <button type="button" class="axil-btn btn-bg-primary checkout-btn" onclick="checkout();">
+                        Proceed to Checkout
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- End slider movie-items -->
+
+
+<!-- footer section-->
+<footer class="ht-footer"></footer>
+<!-- end of footer section-->
+
+<script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/plugins2.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script src="assets/js/notification.js"></script>
+<script src="assets/js/checkout.js"></script>
+<script src="assets/js/content-loader.js"></script>
+<script src="assets/js/sign-out.js"></script>
+</body>
+
+<!-- index14:58-->
+</html>

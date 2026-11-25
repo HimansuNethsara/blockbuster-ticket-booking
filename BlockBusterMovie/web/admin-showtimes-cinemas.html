@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BlockBuster | Manage Cinemas & Showtimes </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="assets/css/admin/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="assets/css/admin/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="assets/css/notification.css"/>
+    <link rel="stylesheet" href="assets/css/multi-select.css"/>
+<!--    <link rel="stylesheet" href="assets/css/admin/login.css">-->
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+        
+  </head>
+  <body onload="loadData();">
+    <header class="header" id="page-header"></header>
+    
+<div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar"></nav>
+      <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        <!-- Page Header-->
+        <div class="page-header no-margin-bottom">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Manage Cinemas & Showtimes</h2>
+          </div>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Manage Cinemas & Showtimes </li>
+          </ul>
+        </div>
+        <section class="no-padding-top">
+          <div class="container-fluid">
+            <div class="row">
+                
+                <div class="col-lg-6">
+                    <div class="block">
+                      <div class="title"><strong class="d-block">Add Cinema</strong><span class="d-block">Fill in the cinema name.</span></div>
+                      <div class="block-body">
+                        <form>
+                          <div class="form-group">
+                            <label class="form-control-label">Cinema Name</label>
+                            <input type="text" id="cinema-name" placeholder="Cinema Name" class="form-control" required>
+                          </div>
+                          <div class="form-group">       
+                            <label class="form-control-label">City</label>
+                            <select name="account" class="form-control mb-3" id="city">
+                                <option value="0">Select</option>
+                            </select>
+                          </div>
+                          <div class="form-group">       
+                              <button type="button" class="btn btn-primary" onclick="addCinema();">Add Cinema</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="block">
+                      <div class="title">
+                        <strong class="d-block">Add Movie Hall</strong>
+                        <span class="d-block">Fill in the name of movie hall and select the respective cinema.</span>
+                      </div>
+                      <div class="block-body">
+                        <form>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label class="form-control-label">Movie Hall Name</label>
+                                <input type="text" id="hall-name" placeholder="Movie Hall Name" class="form-control">
+                              </div>
+                              <div class="col-md-6">
+                                <label class="form-control-label">No. of Seats</label>
+                                <input type="text" id="seats" placeholder="No. of Seats" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">       
+                            <label class="form-control-label">Cinema</label>
+                            <select name="account" class="form-control mb-3" id="cinema">
+                              <option value="0">Select</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">       
+                            <button type="button" class="btn btn-primary" onclick="addHall();">Add Movie Hall</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-12">
+                    <div class="block">
+                      <div class="title"><strong class="d-block">Add ShowTime</strong><span class="d-block">Select the movie, cinema, hall, show date & time, and the ticket price.</span></div>
+                      <div class="block-body">
+                        <form>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="form-control-label">Movie Name</label>
+                                <select name="account" class="form-control mb-3" id="show-movie">
+                                    <option value="0">Select</option>
+                                </select>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-control-label">Cinema Name</label>
+                                <select name="account" class="form-control mb-3" id="show-cinema">
+                                    <option value="0">Select</option>
+                                </select>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-control-label">Hall Name</label>
+                                <select name="account" class="form-control mb-3" id="show-hall">
+                                    <option value="0">Select</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="form-control-label">Show Date</label>
+                                <div class="group-ip">
+                                    <input type="date" id="show-date" class="form-control">
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-control-label">Show Time</label>
+                                <div class="group-ip">
+                                    <input type="time" id="show-time" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="form-control-label">Ticket Price</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>
+                                    <input type="text" class="form-control" id="show-price">
+                                    <div class="input-group-append"><span class="input-group-text">.00</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">       
+                              <button type="button" class="btn btn-primary" onclick="addShowTime();">Add ShowTime</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+        </section>
+        <footer class="footer"></footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery.cookie.js"> </script>
+    <script src="assets/js/vendor/Chart.min.js"></script>
+    <script src="assets/js/admin/front.js"></script>     
+    <script src="assets/js/admin/charts-home.js"></script>
+
+    <script src="assets/js/admin/admin-content-loader.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/admin/admin-showtimes-cinemas.js"></script>
+    <script src="assets/js/admin/admin-sign-out.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  </body>
+</html>

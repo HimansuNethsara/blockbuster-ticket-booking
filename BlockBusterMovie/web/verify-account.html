@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Email | BlockBuster</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/verify-account.css" />
+    <link rel="stylesheet" href="assets/css/notification.css"/>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/images/logo2.png" alt="BlockBuster Logo">
+        </div>
+        <div class="verification-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <h1>Verify Your Email</h1>
+
+        <p class="verification-message">
+            We've sent a 6-digit verification code to
+            <strong>user@example.com</strong>. Please enter it below to verify your
+            email address.
+        </p>
+
+        <div class="verification-code-container">
+            <div class="code-inputs">
+                <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autofocus />
+                <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" />
+                <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" />
+                <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" />
+                <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" />
+                <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" />
+            </div>
+
+            
+
+            <button onclick="verifyAccount();" type="button" class="primary-btn" id="verifyBtn" disabled>
+                Verify Email
+            </button>
+        </div>
+    </div>
+
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/verify-account.js"></script>
+
+</body>
+
+</html>

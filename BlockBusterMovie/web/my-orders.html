@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<!-- index14:58-->
+<head>
+    <meta charset="UTF-8">
+    <title>My Bookings | BlockBuster</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+        <!--Google Font-->
+        <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="assets/css/plugins.css" type="text/css">
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/cart.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/notification.css" type="text/css">
+
+
+</head>
+<body onload="loadMyBookings();" >
+<!--loading-->
+<div id="preloader">
+    <img class="logo" src="assets/images/logo1.png" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<!-- BEGIN | Header -->
+<header class="ht-header" id="page-header"></header>
+<!-- END | Header -->
+
+<div class="slider movie-items">
+    <div class="cart-wrapper">
+        <div class="row">
+            <div class="cart-container">
+
+                <div class="right-side">
+                    <h3 class="title">My Bookings</h3><br/>
+                    <div class="table-responsive">
+                        <table class="table cart-table">
+                            <thead>
+                                <tr>
+                                    <th class="product-image">Movie Poster</th>
+                                    <th class="product-title">Movie Name</th>
+                                    <th class="product-cinema">Cinema Name</th>
+                                    <th class="product-hall">Hall Name</th>
+                                    <th class="product-showtime">Date & Time</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Tickets</th>
+                                    <th class="product-subtotal">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-item-container">
+                                <tr>
+                                    <td class="product-image"></td>
+                                    <td class="product-title"></td>
+                                    <td class="product-cinema"></td>
+                                    <td class="product-hall"></td>
+                                    <td class="product-showtime"></td>
+                                    <td class="product-price"></td>
+                                    <td class="product-quantity">
+                                        <div class="pro-qty">
+                                            <span class="quantity-display"></span>
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End slider movie-items -->
+
+
+<!-- footer section-->
+<footer class="ht-footer"></footer>
+<!-- end of footer section-->
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/plugins2.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script src="assets/js/notification.js"></script>
+<script src="assets/js/content-loader.js"></script>
+<script src="assets/js/sign-out.js"></script>
+<script src="assets/js/my-bookings.js"></script>
+</body>
+
+<!-- index14:58-->
+</html>

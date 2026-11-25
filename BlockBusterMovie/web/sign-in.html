@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | BlockBuster</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/sign-in.css">
+    <link rel="stylesheet" href="assets/css/notification.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/images/logo2.png" alt="BlockBuster Logo">
+        </div>
+        
+        <h1>Welcome Back</h1>       
+        
+        <form onsubmit="return false;">
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+            </div>
+            
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Forgot password?</a>
+                </div>
+            </div>
+            
+            <button type="button" onclick="signIn(event);" class="primary-btn">Sign In</button>
+        </form>
+        
+        
+        
+        <div class="signup-link">
+            Don't have an account? <a href="sign-up.html">Sign up</a>
+        </div>
+    </div>
+
+    <script src="assets/js/password-visibility.js"></script>
+    <script src="assets/js/sign-in.js"></script>
+    <script src="assets/js/notification.js"></script>
+    
+</body>
+</html>

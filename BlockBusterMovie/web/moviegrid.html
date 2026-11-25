@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+<!-- moviegrid07:29-->
+<head>
+	<!-- Basic need -->
+	<title>MovieGrid | BlockBuster</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+        <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+        <!--Google Font-->
+        <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="assets/css/plugins.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/notification.css">
+
+</head>
+<body onload="loadData();">
+<!--loading-->
+<div id="preloader">
+    <img class="logo" src="assets/images/logo1.png" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<header class="ht-header" id="page-header"></header>
+
+<div class="hero common-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1> movie listing - grid</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="#">Home</a></li>
+						<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="topbar-filter">
+					<p>Found <span id="movieCount">1,608 movies</span> in total</p>
+					<label>Sort by:</label>
+					<select id="sortOption">
+                                            <option value="rating_desc">IMDB Rating Descending</option>
+                                            <option value="rating_asc">IMDB Rating Ascending</option>
+                                            <option value="date_desc">New Release Descending</option>
+                                            <option value="date_asc">New Release Ascending</option>
+                                        </select>
+					<a href="movielist.html" class="list"><i class="ion-ios-list-outline "></i></a>
+					<a  href="#" class="grid"><i class="ion-grid active"></i></a>
+				</div>
+				<div class="flex-wrap-movielist">
+                                    <div class="movie-item-style-2 movie-item-style-1">
+					<img src="images/uploads/mv2.jpg" alt="">
+					<div class="hvr-inner">
+                                            <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+	            			</div>
+					<div class="mv-item-infor">
+                                            <h6><a href="#">into the wild</a></h6>
+                                            <p class="rate"><i class="ion-android-star"></i><span>7.8</span> /10</p>
+					</div>
+                                    </div>
+
+				</div>		
+				<div class="topbar-filter">
+					<label>Movies per page:</label>
+					<label> 8 Movies</label>
+					
+					<div class="pagination2" id="movie-pagination-container"></div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="sidebar">
+					<div class="searh-form">
+						<h4 class="sb-title">Search for movie</h4>
+						<form class="form-style-1" action="#">
+							<div class="row">
+								<div class="col-md-12 form-it">
+									<label>Movie name</label>
+									<input type="text" id="title" placeholder="Enter keywords">
+								</div>
+								<div class="col-md-12 form-it">
+                                                                    <label for="genre">Genres</label>
+                                                                    <div class="group-ip">
+                                                                        <select id="genre" name="genres" class="ui fluid dropdown" multiple="">
+                                                                        </select>
+                                                                    </div>	
+                                                                </div>
+								<div class="col-md-12 form-it">
+									<label>IMDB Rating Range</label>
+									<div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <input type="text" id="imdbFrom" placeholder="From">
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <input type="text" id="imdbTo" placeholder="To">
+                                                                            </div>  
+									</div>					
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Release Year</label>
+									<div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <input type="text" id="yearFrom" placeholder="From">
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <input type="text" id="yearTo" placeholder="To">
+                                                                            </div>  
+									</div>
+								</div>
+								<div class="col-md-12 ">
+                                                                    <input class="submit" type="button" value="submit" onclick="searchMovie(0);">
+								</div>
+							</div>
+						</form>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer section-->
+<footer class="ht-footer"></footer>
+<!-- end of footer section-->
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/plugins2.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/notification.js"></script>
+<script src="assets/js/movie-search.js"></script>
+
+<script src="assets/js/content-loader.js"></script>
+<script src="assets/js/sign-out.js"></script>
+
+<script>
+    document.getElementById("sortOption").addEventListener("change", () => {
+    searchMovie(0); 
+});
+
+</script>
+
+</body>
+
+<!-- moviegrid07:38-->
+</html>

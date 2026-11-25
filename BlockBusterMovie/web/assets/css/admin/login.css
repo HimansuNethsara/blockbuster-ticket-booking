@@ -1,0 +1,16 @@
+.info-panel .logo h1 {
+  color: #e75b5b; 
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.info-panel p {
+  color: #111;         
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .info-panel p {
+    color: #fff;
+  }
+}

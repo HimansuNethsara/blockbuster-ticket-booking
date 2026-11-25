@@ -1,0 +1,182 @@
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #f9fafb;
+  --text: #374151;
+  --light-text: #6b7280;
+  --border: #e5e7eb;
+  --error: #ef4444;
+  --success: #10b981;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
+  background-image: url("/BlockBusterMovie/assets/images/background-sign.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 2.5rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo img {
+  height: 42px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.verification-message {
+  text-align: center;
+  color: var(--light-text);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.verification-message strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.verification-code-container {
+  margin-bottom: 1.5rem;
+}
+
+.verification-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.code-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.code-inputs input {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--secondary);
+  transition: all 0.2s;
+}
+
+.code-inputs input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.code-inputs input.filled {
+  border-color: var(--success);
+}
+
+button.primary-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+button.primary-btn:disabled {
+  background-color: var(--light-text);
+  cursor: not-allowed;
+}
+
+.resend-code {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--light-text);
+}
+
+.resend-code a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.resend-code a:hover {
+  text-decoration: underline;
+}
+
+.timer {
+  color: var(--error);
+  font-weight: 500;
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.success-message {
+  color: var(--success);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .code-inputs input {
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}

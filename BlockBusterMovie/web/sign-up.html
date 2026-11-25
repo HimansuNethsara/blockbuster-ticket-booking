@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account | BlockBuster</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/B.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/sign-up.css" />
+    <link rel="stylesheet" href="assets/css/notification.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <!-- Replace with your e-commerce logo -->
+            <img src="assets/images/logo2.png" alt="BlockBuster Logo">
+        </div>
+
+        <h1>Join BlockBuster Today</h1>
+
+        <div class="name-fields">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstname" placeholder="First name" required />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastname" placeholder="Last name" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="At least 8 characters" required
+                minlength="8" />
+            <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+        </div>
+
+        <button onclick="signUp();" type="submit" class="primary-btn">Create Account</button>
+
+        <div class="benefits">
+            <h3>Benefits of joining:</h3>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Book tickets instantly and securely</li>
+                <li><i class="fas fa-check-circle"></i> View your booking history and status</li>
+                <li><i class="fas fa-check-circle"></i> Get early access to new movie releases</li>
+                <li><i class="fas fa-check-circle"></i> Receive personalized movie suggestions</li>
+                <li><i class="fas fa-check-circle"></i> Save your favorite movies and showtimes</li>
+            </ul>
+        </div>
+
+        <div class="terms">
+            By creating an account, you agree to BlockBuster's
+            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            We'll occasionally send you account-related emails.
+        </div>
+
+        <div class="login-link">
+            Already have an account? <a href="sign-in.html">Sign in</a>
+        </div>
+    </div>
+    <script src="assets/js/password-visibility.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/sign-up.js"></script>
+
+</body>
+
+</html>
